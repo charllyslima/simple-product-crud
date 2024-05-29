@@ -15,16 +15,20 @@ RUN apt-get update && apt-get install -y \
     curl \
     libzip-dev \
     libonig-dev \
-    libxml2-dev
+    libxml2-dev \
+    pkg-config \
+    libssl-dev
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
+    && pecl install redis xdebug \
+    && docker-php-ext-enable redis xdebug
 
-# Install Xdebug
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy custom php.ini
 COPY ./docker/php/local.ini /usr/local/etc/php/conf.d/

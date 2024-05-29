@@ -20,6 +20,8 @@ services:
             - DB_DATABASE=laravel
             - DB_USERNAME=root
             - DB_PASSWORD=root
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
 
     web:
         image: nginx:alpine
@@ -48,13 +50,15 @@ services:
         networks:
             - spc-network
         ports:
-            - "3306:3306"  # Expor a porta 3306 para acesso externo
+            - "3306:3306"
 
     redis:
         image: redis:alpine
         container_name: spc_redis
         networks:
             - spc-network
+        ports:
+            - "6379:6379"
 
     node:
         image: node:16-alpine
