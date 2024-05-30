@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+    node:
+        build: .
+        container_name: spc_frontend
+        working_dir: /app
+        volumes:
+            - .:/app
+        ports:
+            - "8080:8080"
+        command: ["npm", "run", "serve"]
