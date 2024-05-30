@@ -61,7 +61,7 @@ services:
             - "6379:6379"
 
     node:
-        image: node:16-alpine
+        image: node:20.14.0
         container_name: spc_node
         working_dir: /var/www/html
         volumes:

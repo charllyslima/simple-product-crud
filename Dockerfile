@@ -36,9 +36,6 @@ COPY ./docker/php/local.ini /usr/local/etc/php/conf.d/
 # Set working directory
 WORKDIR /var/www/html
 
-# Install project dependencies
-RUN composer install
-
 # Expose port 9003 for Xdebug
 EXPOSE 9003
 

@@ -38,6 +38,7 @@ docker-compose exec app php artisan migrate
 ```
 
 ## Utilização
+
 ### Executar o Servidor de Desenvolvimento
 
 Para iniciar o servidor de desenvolvimento, execute:
