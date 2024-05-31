@@ -23,6 +23,9 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanct
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('categories', CategoryController::class);
+    Route::get('categories/search/{keyword}', [CategoryController::class, 'search']);
     Route::apiResource('products', ProductController::class);
-    Route::get('images/{filename}', [ImageController::class, 'show'])->name('images.show');
 });
+
+Route::get('images/{filename}', [ImageController::class, 'show'])->name('images.show');
+//TODO: VERIFICAR SE SOBRAR TEMPO PARA RESTRINGIR O ACESSO

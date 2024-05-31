@@ -26,7 +26,9 @@ class AuthController extends BaseController
             return $this->sendResponse($success, 'User login successfully.');
         }
 
-        return $this->sendError('Unauthorised.', ['error' => 'Unauthorised'], 401);
+        return response()->json([
+            'message' => 'Login e/ou senha inválidos.'
+        ], 401);
 
     }
 

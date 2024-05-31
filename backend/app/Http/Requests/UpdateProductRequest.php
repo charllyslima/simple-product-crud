@@ -26,8 +26,28 @@ class UpdateProductRequest extends FormRequest
             'category_id' => 'sometimes|required|exists:categories,id',
             'name' => 'sometimes|required|string|max:255',
             'price' => 'sometimes|required|numeric|min:0',
-            'picture' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:5120', // até 5MB
+            'picture' => [
+                'nullable',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (!$this->isBase64Image($value) && !$this->isExistingImage($value)) {
+                        $fail('The ' . $attribute . ' must be a valid base64 encoded image or a valid existing image reference.');
+                    }
+                }
+            ],
             'situation' => 'boolean',
         ];
+    }
+
+    protected function isBase64Image($value): false|int
+    {
+        return preg_match('/^data:image\/(jpeg|png|jpg|gif);base64,[A-Za-z0-9+\/=]+$/i', $value);
+    }
+
+    protected function isExistingImage($value): bool
+    {
+        // Assume that the $value is a filename and check if it exists in your storage.
+        // Adjust the logic to match how you store and reference images.
+        return file_exists(storage_path('app/private/pictures/' . $value));
     }
 }

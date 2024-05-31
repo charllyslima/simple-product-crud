@@ -59,7 +59,7 @@ Para iniciar o servidor de desenvolvimento, execute:
  docker-compose up -d
 ```
 
-O backend estará disponível em http://localhost e o frontend em http://localhost:8080.
+O backend estará disponível em http://localhost e o frontend em http://localhost:5173.
 
 ## Comandos Úteis
 Acessar o Terminal do Container

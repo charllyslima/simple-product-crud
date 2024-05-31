@@ -26,7 +26,16 @@ class CreateProductRequest extends FormRequest
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'picture' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:5120', // até 5MB
+            'picture' => [
+                'nullable',
+                'string',
+                function ($attribute, $value, $fail) {
+                    // Validar se é uma imagem em base64
+                    if (!preg_match('/^data:image\/(jpeg|png|jpg|gif);base64,[A-Za-z0-9+\/=]+$/i', $value)) {
+                        $fail('The ' . $attribute . ' is not a valid base64 encoded image.');
+                    }
+                }
+            ],
             'situation' => 'boolean',
         ];
     }
