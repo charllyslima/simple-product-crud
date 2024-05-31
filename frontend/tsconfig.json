@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@views/*": ["src/views/*"],
+      "@assets/*": ["src/assets/*"]
+    },
+    "exclude": ["node_modules", "dist"],
     "target": "ES2020",
     "useDefineForClassFields": true,
     "module": "ESNext",

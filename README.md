@@ -28,7 +28,17 @@ cd simple-product-crud
 ```
 
 ### Construir e Subir os Containers Docker
+
+#### API
+
 ```shell
+cd backend/
+docker-compose up -d
+```
+
+#### Frontend
+```shell
+cd frontend/
 docker-compose up -d
 ```
 
@@ -36,6 +46,7 @@ docker-compose up -d
 ```shell
 docker-compose exec app php artisan migrate
 ```
+
 
 ## Utilização
 
@@ -48,7 +59,7 @@ Para iniciar o servidor de desenvolvimento, execute:
  docker-compose up -d
 ```
 
-O backend estará disponível em http://localhost:9000 e o frontend em http://localhost:8080.
+O backend estará disponível em http://localhost e o frontend em http://localhost:8080.
 
 ## Comandos Úteis
 Acessar o Terminal do Container
