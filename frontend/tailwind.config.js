@@ -5,7 +5,15 @@ export default {
     './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "sky-blue": '#8ECAE6',
+        "blue-green": '#219EBC',
+        "prussian-blue": '#023047',
+        "selective-yellow": '#FFB703',
+        "ut-orange": '#FB8500',
+      },
+    },
   },
   plugins: [],
 }

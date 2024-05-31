@@ -2,6 +2,9 @@
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
     <div class="max-w-md w-full bg-white rounded-lg shadow-md p-8 space-y-6">
       <h2 class="text-2xl font-bold text-center text-gray-900">Bem-vindo</h2>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert" v-if="generalError">
+        <strong class="font-bold">{{generalError}}</strong>
+      </div>
       <form @submit.prevent="handleLogin">
         <div class="space-y-4">
           <div>
@@ -38,6 +41,7 @@ import {login} from "@/api/auth.ts";
 import {AxiosError} from "axios";
 import {useUserStore} from "@/store/userStore.ts";
 import {useRouter} from "vue-router";
+import {useLoaderStore} from "@/store/loaderStore.ts";
 
 export default defineComponent({
   setup() {
@@ -45,24 +49,31 @@ export default defineComponent({
     const password = ref('')
     const rememberMe = ref(false)
     const errors = ref<FormLoginResponseError>({email: [], password: []})
+    const generalError = ref('')
     const router = useRouter()
     const handleLogin = async () => {
+      errors.value.email = []
+      errors.value.password = []
+      generalError.value = ''
+      useLoaderStore().startLoading()
       login(email.value, password.value).then((success) => {
         if ("name" in success.data.data && "token" in success.data.data) {
           const userStore = useUserStore()
           const name = success.data.data.name
           const token = success.data.data.token
           userStore.setUser(name, token)
-          router.push({ name: 'Home' })
+          router.push({path: '/'})
         }
+        useLoaderStore().stopLoading()
       }).catch((err) => {
         const error = err as AxiosError<FormLoginResponseError>;
         if (error.response && error.response.data) {
           errors.value.email = error.response.data.email || []
           errors.value.password = error.response.data.password || []
         } else {
-          console.error('Unexpected error', error)
+          generalError.value = err?.response?.message || 'Erro inesperado';
         }
+        useLoaderStore().stopLoading()
       })
 
     }
@@ -72,12 +83,13 @@ export default defineComponent({
       password,
       rememberMe,
       handleLogin,
-      errors
+      errors,
+      generalError
     }
   }
 })
 </script>
 
 <style scoped>
-/* Você pode adicionar estilos adicionais aqui */
+
 </style>

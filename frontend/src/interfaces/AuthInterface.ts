@@ -5,8 +5,9 @@ interface ResponseLogin {
 }
 
 interface FormLoginResponseError {
-    email: [string] | []
-    password: [string] | []
+    email?: [string] | []
+    password?: [string] | []
+    message?: string
 }
 
 interface FormLoginResponse {
