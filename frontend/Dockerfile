@@ -1,29 +1,20 @@
-FROM node:20.14.0
+# Use a imagem node:alpine como base
+FROM node:20.12.0
 
-# Set working directory
-WORKDIR /src
+WORKDIR /srv/app
 
-# Install Vue CLI
-RUN npm install -g @vue/cli
-
-# Copy entrypoint script
-COPY ./docker/docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
-# Copy package.json and package-lock.json if they exist
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+RUN ls
 
-# Copy the rest of the application code
+COPY ./docker/docker-entrypoint.sh ./docker-entrypoint.sh
+
+# Adiciona permissão de execução para o script
+RUN chmod +x /srv/app/docker-entrypoint.sh
+
 COPY . .
 
-# Expose port
-EXPOSE 8080
+EXPOSE 5173
 
-# Use entrypoint script
-ENTRYPOINT ["./docker/docker-entrypoint.sh"]
-
-# Command to run the application
-CMD ["npm", "run", "serve"]
+# Define o script de entrada
+ENTRYPOINT ["sh", "./docker/docker-entrypoint.sh"]
