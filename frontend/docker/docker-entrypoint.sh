@@ -1,14 +1,15 @@
 #!/bin/sh
-set -e
 
-# Verifica se o package.json está presente
-if [ ! -f /app/package.json ]; then
-  echo "package.json not found, please make sure it's in the correct directory"
-  exit 1
-fi
+echo "Starting docker-entrypoint.sh script..."
 
-# Instala as dependências
+echo "Removing node_modules and package-lock.json if they exist..."
+rm -rf node_modules package-lock.json
+
+echo "Installing dependencies..."
 npm install
 
-# Executa o comando fornecido (por exemplo, npm run serve)
-exec "$@"
+echo "Listing installed packages..."
+ls -l node_modules
+
+echo "Starting Vite server..."
+exec npm run dev
