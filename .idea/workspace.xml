@@ -5,19 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b62a97-deb1-4073-aba2-eb5217d9697e" name="Changes" comment="wip: finish partial project">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4f39e494-aa9f-4337-83e4-89ddcc524e88.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4f39e494-aa9f-4337-83e4-89ddcc524e88.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/CreateProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/CreateProductRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Requests/UpdateProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Requests/UpdateProductRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_05_29_222219_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_05_29_222219_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/lang/pt_BR/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/lang/pt_BR/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.env.local.example" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.env.local.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ConfirmationModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ConfirmationModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layout/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layout/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/interfaces/ProductInterface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/interfaces/ProductInterface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/product/ProductManagement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/product/ProductManagement.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/product/components/ProductForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/product/components/ProductForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/product/components/ProductList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/product/components/ProductList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,7 +371,7 @@
       <workItem from="1717118959696" duration="15000" />
       <workItem from="1717119340884" duration="163000" />
       <workItem from="1717119514315" duration="7394000" />
-      <workItem from="1717149595589" duration="30486000" />
+      <workItem from="1717149595589" duration="33551000" />
     </task>
     <task id="LOCAL-00001" summary="wip: docker environment configuration">
       <option name="closed" value="true" />
@@ -423,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717150937566</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="wip: finish partial project">
+      <option name="closed" value="true" />
+      <created>1717187346922</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717187346922</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,5 +1,11 @@
 <template>
   <div class="mx-auto mt-8">
+    <div class="mb-4">
+      <select v-model="selectedCategoryId" @change="filterProducts" class="block w-full px-4 py-2 border border-gray-300 rounded shadow-lg">
+        <option value="">Todas as Categorias</option>
+        <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
+      </select>
+    </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"  v-if="products?.data?.length">
         <div v-for="product in products?.data" :key="product.id">
           <div class="flex flex-col lg:flex-row max-w-md lg:max-w-full bg-white rounded-lg border border-gray-400 overflow-hidden">
@@ -102,6 +108,7 @@ export default defineComponent({
   setup(_, {emit}) {
     const showModal = ref(false);
     const productIdToDelete = ref<number | null>(null);
+    const selectedCategoryId = ref('');
     const confirmDelete = (id: number) => {
       productIdToDelete.value = id;
       showModal.value = true;
@@ -124,13 +131,19 @@ export default defineComponent({
       }
     };
 
+    const filterProducts = () => {
+      emit('filter', selectedCategoryId)
+    }
+
     return {
       showModal,
       confirmDelete,
       handleDelete,
       fetchPage,
       defaultImage,
-      imageProccess: imageProcess
+      imageProccess: imageProcess,
+      selectedCategoryId,
+      filterProducts
     };
   }
 });

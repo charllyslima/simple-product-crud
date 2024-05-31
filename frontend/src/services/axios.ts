@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {useUserStore} from "@/store/userStore.ts";
+import Vue from 'vue';
 
 const apiClient = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -30,6 +31,7 @@ apiClient.interceptors.response.use(
         return response;
     },
     (error) => {
+        //TODO: IMPLEMENTAR NOTIFICACOES DE ERROS
         return Promise.reject({
             status: error.response?.status,
             response: error.response?.data,

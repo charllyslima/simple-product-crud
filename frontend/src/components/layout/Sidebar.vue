@@ -78,6 +78,7 @@ import LinkSidebar from "@components/layout/LinkSidebar.vue";
 import {logout} from "@/api/auth.ts";
 import {useRouter} from "vue-router";
 import {useUserStore} from "@/store/userStore.ts";
+import {useLoaderStore} from "@/store/loaderStore.ts";
 
 export default defineComponent({
   name: 'Sidebar',
@@ -90,6 +91,7 @@ export default defineComponent({
     };
 
     const handleLogout = () => {
+      useLoaderStore().startLoading()
       logout().then(() => {
         useUserStore().clearUser()
         router.push({name: 'Login'})
@@ -97,6 +99,7 @@ export default defineComponent({
         useUserStore().clearUser()
         router.push({name: 'Login'})
       })
+      useLoaderStore().stopLoading()
     }
 
     return {

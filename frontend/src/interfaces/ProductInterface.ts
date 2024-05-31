@@ -8,3 +8,11 @@ interface IProduct {
     created_at: string;
     updated_at: string;
 }
+
+interface IProductErrorResponse {
+    category_id: [string]
+    name: [string]
+    price: [string]
+    picture: [string]
+    situation: [string]
+}

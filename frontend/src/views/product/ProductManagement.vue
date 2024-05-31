@@ -23,6 +23,7 @@
           @edit="editProduct"
           @delete="deleteProduct"
           @update:products="updateProducts"
+          @filter="fetchProducts"
       ></ProductList>
     </div>
   </div>
@@ -48,11 +49,11 @@ export default defineComponent({
     const isEdit = ref(false);
     const isLoading = ref(true);
 
-    const fetchProducts = async () => {
+    const fetchProducts = async (filter?: any) => {
       showForm.value = false
       useLoaderStore().startLoading()
       try {
-        const response = await getProducts();
+        const response = await getProducts(filter?.value);
         products.value = response.data.data;
       } catch (error) {
         console.error(error);

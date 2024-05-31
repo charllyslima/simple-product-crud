@@ -118,7 +118,6 @@ export default defineComponent({
   setup(props, { emit }) {
     const product = ref({ ...props.product });
     const categories = ref({...props.categories});
-
     watch(() => props.product, (newProduct) => {
       product.value = { ...newProduct };
     }, { deep: true, immediate: true });

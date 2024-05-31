@@ -9,7 +9,7 @@
       <div class="flex justify-end space-x-4">
         <button
             class="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition duration-200"
-            @click="$emit('cancel')"
+            @click="$emit('close')"
         >
           Cancelar
         </button>

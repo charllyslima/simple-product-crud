@@ -14,9 +14,10 @@ class ProductController extends BaseController
 {
     public function index(Request $request): JsonResponse
     {
+
         $cacheKey = 'products_page_' . $request->query('page', 1) . '_category_' . $request->query('category_id', 'all');
 
-        $products = Cache::remember($cacheKey, 60 * 60 * 24, function() use ($request) {
+        $products = Cache::remember($cacheKey, 60 * 60 * 24, function () use ($request) {
             $query = Product::query();
 
             if ($request->has('category_id')) {
@@ -26,7 +27,7 @@ class ProductController extends BaseController
             return $query->paginate(10);
         });
 
-        return $this->sendResponse(Product::query()->paginate(10), 'Produtos recuperados com sucesso.');
+        return $this->sendResponse($products, 'Produtos recuperados com sucesso.');
     }
 
     public function store(CreateProductRequest $request): JsonResponse
@@ -64,7 +65,7 @@ class ProductController extends BaseController
     {
         $cacheKey = 'product_' . $product->id;
 
-        $product = Cache::remember($cacheKey, 60 * 60 * 24, function() use ($product) {
+        $product = Cache::remember($cacheKey, 60 * 60 * 24, function () use ($product) {
             return $product;
         });
 

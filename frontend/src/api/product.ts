@@ -1,8 +1,11 @@
 import apiClient from "@/services/axios.ts";
 import {AxiosResponse} from "axios";
 
-export const getProducts = (): Promise<AxiosResponse<IListResponse<IProduct>>> => {
-    return apiClient.get('/products');
+export const getProducts = (categoryId?: number): Promise<AxiosResponse<IListResponse<IProduct>>> => {
+    if (categoryId) {
+        return apiClient.get(`/products?category_id=${categoryId}`);
+    }
+    return apiClient.get(`/products`);
 }
 
 export const getProduct = (id: number) => {
